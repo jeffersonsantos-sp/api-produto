@@ -14,11 +14,8 @@ pipeline {
             steps {
                 script {
 
-                  withDockerRegistry(credentialsId: 'docker', toolName: 'docker'){
-                    sh "docker build  -t updateinformatica/api-produto ."
-                    sh "docker tag prd updateinformatica/api-produto "
-                    sh  "docker push updateinformatica/api-produto"
-                  }
+                  dockerapp = docker.build("updateinformatica/api-produto", '-f ./src/Dockerfile ./src')
+                 
                 }
                 
           }
