@@ -14,7 +14,7 @@ pipeline {
             steps {
                 script {
 
-                  dockerapp = docker.build("updateinformatica/api-produto", '-f ./src/Dockerfile ./src')
+                  dockerapp = docker.build("updateinformatica/api-produto:1.0", '-f ./src/Dockerfile ./src')
                 }
                 
           }
