@@ -2,9 +2,13 @@ pipeline {
     agent any
 
     stages {
-        stage('Inicial'){
+        stage('Build Image'){
             steps {
-                echo 'Inicial Pipeline'
+                script {
+
+                    dockerapp = docker.build("updateinformatica/api-produto:2.0", '-f ./src/Dockerfile ./src')
+                }
+                
           }
         }
     }
