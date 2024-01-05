@@ -1,0 +1,12 @@
+/* groovylint-disable-next-line CompileStatic */
+pipeline {
+    agent any
+
+    stages {
+        stage('Inicial'){
+          steps {
+              echo 'Inicial Pipiline'
+          }
+        }
+    }
+}
