@@ -14,7 +14,6 @@ pipeline {
           }
         }
         stage('Push Image') {
-
           steps {
 
                script{
@@ -27,6 +26,20 @@ pipeline {
 
               }
             }
-        }             
+        }    
+         stage('K8s') {
+          steps {
+
+               script{
+                  withKubeConfig([credentialId: 'kubeconfig']) {
+                    sh 'kubectl apply -f ./k8s/deployment.yaml'
+
+                   
+
+                }                  
+
+              }
+            }
+        }          
     }
 }
