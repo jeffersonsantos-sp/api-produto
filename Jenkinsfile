@@ -2,15 +2,7 @@ pipeline {
     agent any
 
     stages {
-        stage('Setup Environment') {
-    steps {
-        script {            
-            sh 'apt-get update && apt-get install -y docker.io'
-            sh 'docker info'
-        }
-    }
-}
-
+        
         stage('Build Image'){
             steps {
                 script {
